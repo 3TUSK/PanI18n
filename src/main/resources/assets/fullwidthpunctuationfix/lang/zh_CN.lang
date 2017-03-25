@@ -1,0 +1,5 @@
+command.fwpf.set.usage=/setglyphwidth <单个字符> <宽度>
+command.fwpf.set.fail=输入无效，请重试
+command.fwpf.dump.usage=/dumpglyphwidthdata
+command.fwpf.dump.success=已成功将 glyph_size.bin 导出为资源包
+command.fwpf.dump.fail=导出 glyph_size.bin 失败，请重试

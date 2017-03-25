@@ -1,0 +1,5 @@
+command.fwpf.set.usage=/setglyphwidth <character> <width>
+command.fwpf.set.fail=Invalid Input. Please double check.
+command.fwpf.dump.usage=/dumpglyphwidthdata
+command.fwpf.dump.success=Successfully dumped glyph_size.bin as resourcepack
+command.fwpf.dump.fail=Failed to dump glyph_size.bin, please re-try

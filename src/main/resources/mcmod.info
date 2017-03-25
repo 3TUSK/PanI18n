@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "fullwidthpunctuationfix",
+    "name": "Full-width Punctuation Fix",
+    "description": "Debug tool for manipulating and dumping glyph_size.bin.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateJSON": "",
+    "authorList": [
+      "3TUSK"
+    ],
+    "credits": "Mojang, for not rendering full-width punctuation properly",
+    "logoFile": "",
+    "screenshots": [],
+    "useDependencyInformation": true,
+    "requiredMods": []
+  }
+]
