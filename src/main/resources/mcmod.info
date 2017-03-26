@@ -7,9 +7,7 @@
     "mcversion": "${mcversion}",
     "url": "",
     "updateJSON": "",
-    "authorList": [
-      "3TUSK"
-    ],
+    "authorList": ["3TUSK"],
     "credits": "Mojang, for not rendering full-width punctuation properly",
     "logoFile": "",
     "screenshots": [],
