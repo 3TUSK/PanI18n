@@ -1,5 +1,7 @@
 package info.tritusk.fullwidthpunctuationfix;
 
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraftforge.client.ClientCommandHandler;
@@ -9,7 +11,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.logging.log4j.Logger;
 
 @Mod(modid = "fullwidthpunctuationfix", name = "Full-width Punctuation Fix", useMetadata = true, clientSideOnly = true)
 public enum FullwidthPunctuationFix {
@@ -35,7 +36,7 @@ public enum FullwidthPunctuationFix {
     @SideOnly(Side.CLIENT)
     public void onPostInit(FMLPostInitializationEvent event) {
         try {
-            actualValue = ObfuscationReflectionHelper.getPrivateValue(FontRenderer.class, Minecraft.getMinecraft().fontRendererObj, "glphyWidth", "field_78287_e");
+            actualValue = ObfuscationReflectionHelper.getPrivateValue(FontRenderer.class, Minecraft.getMinecraft().fontRenderer, "glphyWidth", "field_78287_e");
         } catch (Exception e) {
             log.warn("Failed to hack into FontRenderer, FullwidthPunctuationFix will stop working.");
             return;
@@ -46,6 +47,7 @@ public enum FullwidthPunctuationFix {
 
     public void setCharWidth(int index, byte width) {
         if (actualValue != null) {
+        	log.warn(this.actualValue[index]);
             this.actualValue[index] = width;
         }
     }
