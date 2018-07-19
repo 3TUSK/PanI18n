@@ -1,0 +1,4 @@
+command.0day_i18n.char_point_info.usage=/chardata <character> [setwidth|name] <args...>
+command.0day_i18n.char_point_info.char_name=Character '%s' - %s
+command.0day_i18n.char_point_info.override.success=Character '%s' ("%s") has been assigned with new width %d (was %d)
+command.0day_i18n.char_point_info.override.failure=Faild to set width for character '%s' ("%s")

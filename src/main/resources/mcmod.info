@@ -1,0 +1,13 @@
+[
+  {
+    "modid": "0day_i18n",
+    "name": "0-Day I18n Bandage",
+    "description": "Some bandage fix for poor I18n support in Minecraft.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": ["3TUSK"],
+    "credits": "",
+    "useDependencyInformation": true,
+    "requiredMods": ["forge@[14.23.3.2699,)"]
+  }
+]
