@@ -31,12 +31,16 @@ final class FormattingEngine {
             char c = str.charAt(index);
 
             if (c == '\n') { // Unconditionally cut string when there is new line
-                // TODO Do we need to append format in front of it?
-                lines.add(str.substring(start, index));
+                lines.add(cachedFormat + str.substring(start, index));
                 // Set start to appropriate position before next String::substring call
                 start = index + 1;
                 // Clear width counter
                 width = 0;
+                if (format != 'r' && format != 'R') {
+                    cachedFormat = new String(new char[] {'\u00A7', color, '\u00A7', format});
+                } else {
+                    cachedFormat = new String(new char[] {'\u00A7', color});
+                }
                 continue;
             } else if (c == '\u00A7') { // a.k.a. '§'. Used by Minecraft to denote special format, don't count it
                 index++;
@@ -55,6 +59,7 @@ final class FormattingEngine {
                     width += charWidthGetter.applyAsInt(str.charAt(index));
                 }
             } else {
+                // Regular content, add its width to the tracker
                 width += charWidthGetter.applyAsInt(c);
             }
 

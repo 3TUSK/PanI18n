@@ -2,16 +2,15 @@ package info.tritusk.pani18n;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-class FontRendererSwitchCommand extends CommandBase {
+final class FontRendererSwitchCommand extends CommandBase {
 
-    private static final String VANILLA_FONT_RENDERER = "vanilla", REVISIED_FONT_RENDERER = "i18n";
+    private static final String VANILLA_FONT_RENDERER = "vanilla", REVISED_FONT_RENDERER = "i18n";
 
     @Nonnull
     @Override
@@ -22,7 +21,7 @@ class FontRendererSwitchCommand extends CommandBase {
     @Nonnull
     @Override
     public String getUsage(ICommandSender sender) {
-        return "/fontrenderer [" + VANILLA_FONT_RENDERER + "|" + REVISIED_FONT_RENDERER + "]";
+        return "/fontrenderer [" + VANILLA_FONT_RENDERER + "|" + REVISED_FONT_RENDERER + "]";
     }
 
     @Override
@@ -35,7 +34,7 @@ class FontRendererSwitchCommand extends CommandBase {
 
         if (VANILLA_FONT_RENDERER.equals(directive)) {
             Minecraft.getMinecraft().fontRenderer = ZeroDayI18n.originalFontRenderer;
-        } else if (REVISIED_FONT_RENDERER.equals(directive)) {
+        } else if (REVISED_FONT_RENDERER.equals(directive)) {
             Minecraft.getMinecraft().fontRenderer = ZeroDayI18n.neoFontRenderer;
         }
     }
