@@ -95,7 +95,10 @@ end
 ![林业模组的“林务员手册”第一页正文，以原版书与笔为载体，使用原版 FontRenderer 逻辑](sample-3.png)
 
 ## 结语
-国际化一直都是软件开发中的难题，Minecraft 自然也不得不面对一样的问题。相关问题的解决需要全社区的共同努力。在此，笔者衷心希望本文能帮助到未来的开发者。
+国际化一直都是软件开发中的难题，Minecraft 自然也不得不面对一样的问题。相关问题的解决需要全社区的共同努力。在此，笔者衷心希望本文能帮助到未来的开发者。  
+此外，截至Minecraft 1.13 Release，此问题仍然存在。
+
+![林业模组的“林务员手册”第一页正文，以原版书与笔为载体，使用 Minecraft 1.13 Release](sample-4.png)
 
 [ref-1]: http://www.unicode.org/reports/tr14/
 [ref-2]: https://github.com/3TUSK/PanI18n/blob/bleeding/src/main/java/info/tritusk/pani18n/FormattingEngine.java

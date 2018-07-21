@@ -95,7 +95,10 @@ Comparing with vanilla implementation:
 ![Contents of front page of "Forester's Almanac", in vanilla Book and Quill, using vanilla FontRenderer](sample-3.png)
 
 ## Final words
-Internationalization is always a challenging topic in software development, and Minecraft surely is facing the same issue right now. Tackling down the issue requires joint effort from the whole community. I sincerely hope this can help further developers.
+Internationalization is always a challenging topic in software development, and Minecraft surely is facing the same issue right now. Tackling down the issue requires joint effort from the whole community. I sincerely hope this can help further developers.  
+Also, as of Minecraft 1.13 Release, this is still a valid issue.
+
+![Contents of front page of "Forester's Almanac", in vanilla Book and Quill, using Minecraft 1.13 Release](sample-4.png)
 
 [ref-1]: http://www.unicode.org/reports/tr14/
 [ref-2]: https://github.com/3TUSK/PanI18n/blob/bleeding/src/main/java/info/tritusk/pani18n/FormattingEngine.java
