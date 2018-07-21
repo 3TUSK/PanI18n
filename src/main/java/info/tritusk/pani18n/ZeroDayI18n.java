@@ -40,17 +40,17 @@ public final class ZeroDayI18n {
          * Thank you for your understanding. Community will appreciate our
          * effort on this.
          */
-        try {
-            /*
-             * https://stackoverflow.com/a/14987992
-             * A somehow dangerous hack.
-             */
-            Field f = Charset.class.getDeclaredField("defaultCharset");
-            f.setAccessible(true);
-            f.set(null, StandardCharsets.UTF_8);
-            // Catch all cases
-            System.setProperty("file.encoding", "UTF-8");
-        } catch (Exception ignored) {}
+        //try {
+        //    /*
+        //     * https://stackoverflow.com/a/14987992
+        //     * A somehow dangerous hack.
+        //     */
+        //    Field f = Charset.class.getDeclaredField("defaultCharset");
+        //    f.setAccessible(true);
+        //    f.set(null, StandardCharsets.UTF_8);
+        //    // Catch all cases
+        //    System.setProperty("file.encoding", "UTF-8");
+        //} catch (Exception ignored) {}
     }
 
     @Mod.EventHandler
