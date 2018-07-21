@@ -42,6 +42,7 @@ final class FormattingEngine {
         char color = '0', format = 'r'; // 0 is format code for black-colored-text; r is format code to reset format to default
         int start = 0; // Position of first character of each line, in terms of source string, i.e. 1st param of substring call
         int width = 0; // Width tracker
+        boolean boldMode = false; // Bold font occupies extra width of one unit. Set up a tracker to track it
         for (int index = 0; index < str.length(); index++) {
             char c = str.charAt(index);
 
@@ -66,9 +67,11 @@ final class FormattingEngine {
                     format = 'r';
                 } else if (FORMATTING_CODE.indexOf(f) != -1) {
                     format = f;
+                    boldMode = f == 'l';
                 } else if (COLOR_CODE.indexOf(f) != -1) {
                     color = f;
                     format = 'r'; // Reset format when new color code appears
+                    boldMode = false; // Reset special format anyway, so we turn bold mode off
                 }/* else {
                     width += charWidthGetter.applyAsInt('\u00A7');
                     width += charWidthGetter.applyAsInt(str.charAt(index));
@@ -77,6 +80,9 @@ final class FormattingEngine {
             } else {
                 // Regular content, add its width to the tracker
                 width += charWidthGetter.applyAsInt(c);
+                if (boldMode) {
+                    width++; // If we are bold font, occupy one more unit
+                }
             }
 
             if (width > wrapWidth) {
