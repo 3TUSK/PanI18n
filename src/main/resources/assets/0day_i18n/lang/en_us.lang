@@ -2,3 +2,6 @@ command.0day_i18n.char_point_info.usage=/chardata <character> [setwidth|name] <a
 command.0day_i18n.char_point_info.char_name=Character '%s' - %s
 command.0day_i18n.char_point_info.override.success=Character '%s' ("%s") has been assigned with new width %d (was %d)
 command.0day_i18n.char_point_info.override.failure=Faild to set width for character '%s' ("%s")
+
+command.0day_i18n.fast_lang_reload.error=Selective resource reloading is currently disabled. Enable it in forge.cfg
+command.0day_i18n.fast_lang_reload.success=Successfully refreshed language data

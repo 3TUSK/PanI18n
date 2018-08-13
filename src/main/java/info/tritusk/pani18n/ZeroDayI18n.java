@@ -64,6 +64,7 @@ public final class ZeroDayI18n {
         // Register this to the resource reloading listener to make sure everything is ok
         ((IReloadableResourceManager) minecraft.getResourceManager()).registerReloadListener(neoFontRenderer);
         ClientCommandHandler.instance.registerCommand(new FontRendererSwitchCommand());
+        ClientCommandHandler.instance.registerCommand(new FastLanguageReloadCommand());
     }
 
 }
