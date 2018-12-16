@@ -1,0 +1,14 @@
+{
+  "id": "0day_i18n",
+  "name": "0-Day I18n Bandage",
+  "description": "Some bandage fix for poor I18n support in Minecraft.",
+  "version": "0.0.0",
+  "side": "client",
+  "author": [ "3TUSK" ],
+  "initializers": [
+    "info.tritusk.pani18n.ZeroDayI18n"
+  ],
+  "mixin": {
+    "client": "fabric.client.mixin.json"
+  }
+}

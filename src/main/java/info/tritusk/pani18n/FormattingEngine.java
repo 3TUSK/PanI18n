@@ -34,6 +34,7 @@ public final class FormattingEngine {
      *
      * @return A list of String, each occupies one line
      */
+    // TODO IntUnaryOperator -> IntToFloatFunction. There is IntToDoubleFunction. But... oh well...
     public static List<String> wrapStringToWidth(final String str, final int wrapWidth, final IntUnaryOperator charWidthGetter, final Locale currentLocale) {
         BreakIterator lineBreakEngine = BreakIterator.getLineInstance(currentLocale);
         lineBreakEngine.setText(str);

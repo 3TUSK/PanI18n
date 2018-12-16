@@ -2,7 +2,6 @@ package info.tritusk.pani18n;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.commands.CommandRegistry;
-import net.minecraft.client.MinecraftClient;
 
 public final class ZeroDayI18n implements ModInitializer {
 
