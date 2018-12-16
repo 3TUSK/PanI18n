@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.IntUnaryOperator;
 
-final class FormattingEngine {
+public final class FormattingEngine {
 
     /**
      * Valid color format code used by Minecraft.

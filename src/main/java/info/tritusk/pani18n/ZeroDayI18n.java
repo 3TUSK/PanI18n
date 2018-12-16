@@ -1,24 +1,10 @@
 package info.tritusk.pani18n;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.resources.IReloadableResourceManager;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.ClientCommandHandler;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.commands.CommandRegistry;
+import net.minecraft.client.MinecraftClient;
 
-import java.lang.reflect.Field;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-
-@Mod(modid = "0day_i18n", name = "0-Day I18n Bandage", version = "@VERSION@", useMetadata = true, clientSideOnly = true)
-public final class ZeroDayI18n {
-
-    static FontRenderer originalFontRenderer;
-    static I18nFontRenderer neoFontRenderer;
+public final class ZeroDayI18n implements ModInitializer {
 
     public ZeroDayI18n() {
         /*
@@ -53,18 +39,11 @@ public final class ZeroDayI18n {
         //} catch (Exception ignored) {}
     }
 
-    @Mod.EventHandler
-    public void complete(FMLLoadCompleteEvent event) {
-        Minecraft minecraft = Minecraft.getMinecraft();
-        // Keep a reference to the original one for debug purpose
-        originalFontRenderer = minecraft.fontRenderer;
-        ResourceLocation asciiGlyphTexture = new ResourceLocation("textures/font/ascii.png");
-        // This is the FontRenderer that almost the whole Minecraft relies on. Swap it out.
-        minecraft.fontRenderer = (neoFontRenderer = new I18nFontRenderer(minecraft.gameSettings, asciiGlyphTexture, minecraft.getTextureManager(), minecraft.getLanguageManager().isCurrentLocaleUnicode()));
-        // Register this to the resource reloading listener to make sure everything is ok
-        ((IReloadableResourceManager) minecraft.getResourceManager()).registerReloadListener(neoFontRenderer);
-        ClientCommandHandler.instance.registerCommand(new FontRendererSwitchCommand());
-        ClientCommandHandler.instance.registerCommand(new FastLanguageReloadCommand());
-    }
 
+    @Override
+    public void onInitialize() {
+        // TODO Can we just swap the FontRenderer used by Minecraft globally?
+        // MinecraftClient.getInstance().fontRenderer = ???;
+        CommandRegistry.INSTANCE.register(false, FontRendererSwitchCommand::register);
+    }
 }

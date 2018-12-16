@@ -1,23 +1,22 @@
 package info.tritusk.pani18n;
 
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.settings.GameSettings;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraft.client.font.FontRenderer;
+import net.minecraft.client.font.FontStorage;
+import net.minecraft.client.texture.TextureManager;
 
-import javax.annotation.Nonnull;
 import java.util.List;
+import java.util.Locale;
 
 public final class I18nFontRenderer extends FontRenderer {
 
-    I18nFontRenderer(GameSettings settings, ResourceLocation asciiGlyph, TextureManager textureManager, boolean unicode) {
-        super(settings, asciiGlyph, textureManager, unicode);
+    public I18nFontRenderer(TextureManager textureManager, FontStorage fontStorage) {
+        super(textureManager, fontStorage);
     }
 
-    @Nonnull
     @Override
-    public final List<String> listFormattedStringToWidth(final String str, final int wrapWidth) {
-        return FormattingEngine.wrapStringToWidth(str, wrapWidth, c -> this.getCharWidth((char)c), MinecraftForgeClient.getLocale());
+    public final List<String> wrapStringToWidthAsList(final String str, final int wrapWidth) {
+        // FIXME getCharWith now returns float, not int
+        // FIXME We need to parse language code in order to obtain the correct java.util.Locale object
+        return FormattingEngine.wrapStringToWidth(str, wrapWidth, c -> (int)this.getCharWidth((char)c), Locale.getDefault());
     }
 }
