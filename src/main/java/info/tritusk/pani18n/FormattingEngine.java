@@ -1,5 +1,7 @@
 package info.tritusk.pani18n;
 
+import it.unimi.dsi.fastutil.chars.Char2FloatFunction;
+
 import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,15 +36,14 @@ public final class FormattingEngine {
      *
      * @return A list of String, each occupies one line
      */
-    // TODO IntUnaryOperator -> IntToFloatFunction. There is IntToDoubleFunction. But... oh well...
-    public static List<String> wrapStringToWidth(final String str, final int wrapWidth, final IntUnaryOperator charWidthGetter, final Locale currentLocale) {
+    public static List<String> wrapStringToWidth(final String str, final int wrapWidth, final Char2FloatFunction charWidthGetter, final Locale currentLocale) {
         BreakIterator lineBreakEngine = BreakIterator.getLineInstance(currentLocale);
         lineBreakEngine.setText(str);
         ArrayList<String> lines = new ArrayList<>(8);
         String cachedFormat = "";
         char color = '0', format = 'r'; // 0 is format code for black-colored-text; r is format code to reset format to default
         int start = 0; // Position of first character of each line, in terms of source string, i.e. 1st param of substring call
-        int width = 0; // Width tracker
+        float width = 0; // Width tracker
         boolean boldMode = false; // Bold font occupies extra width of one unit. Set up a tracker to track it
         for (int index = 0; index < str.length(); index++) {
             char c = str.charAt(index);
@@ -80,7 +81,7 @@ public final class FormattingEngine {
                 continue;
             } else {
                 // Regular content, add its width to the tracker
-                width += charWidthGetter.applyAsInt(c);
+                width += charWidthGetter.get(c);
                 if (boldMode) {
                     width++; // If we are bold font, occupy one more unit
                 }
