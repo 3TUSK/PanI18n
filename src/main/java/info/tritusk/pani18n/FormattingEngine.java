@@ -6,7 +6,6 @@ import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.function.IntUnaryOperator;
 
 public final class FormattingEngine {
 

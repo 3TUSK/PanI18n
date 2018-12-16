@@ -28,6 +28,7 @@ public abstract class MixinFontRenderer {
         return FormattingEngine.wrapStringToWidth(str, wrapWidth, this::getCharWidth, Locale.getDefault());
     }
 
+    // TODO The cursor becomes wonky now. Needs investigation
     @Shadow
     public abstract float getCharWidth(char c);
 }
